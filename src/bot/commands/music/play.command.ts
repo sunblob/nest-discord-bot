@@ -51,6 +51,11 @@ export class PlayCommand {
     const queue = this.playerService
       .getPlayer()
       .createQueue(interaction.guild, {
+        ytdlOptions: {
+          filter: 'audioonly',
+          highWaterMark: 1 << 30,
+          dlChunkSize: 0,
+        },
         metadata: {
           channel: interaction.channel,
         },

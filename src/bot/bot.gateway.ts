@@ -20,4 +20,9 @@ export class BotGateway {
   onError(error) {
     this.logger.error(`Bot encountered error: ${error}`);
   }
+
+  @On('connectionError')
+  onConnectionError(error) {
+    this.logger.error(`Bot encountered connection error: ${error}`);
+  }
 }

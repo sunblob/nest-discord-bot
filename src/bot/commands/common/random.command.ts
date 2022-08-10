@@ -26,24 +26,27 @@ class RandomDto {
   name: 'random',
   description:
     'Generates a random number from 0 to 100 if values were not provided',
+  descriptionLocalizations: {
+    ru: 'Насколько ты чурка',
+  },
 })
 @UsePipes(TransformPipe)
 export class RandomCommand implements DiscordTransformedCommand<RandomDto> {
   handler(@Payload() { from, to }: RandomDto): string {
     if (!from && !to) {
-      return `Your lucky number is ${Math.floor(Math.random() * 101)}`;
+      return `Ты чурка на ${Math.floor(Math.random() * 101)}%`;
     }
 
     if (from && !to) {
-      return `Your lucky number is ${Math.floor(Math.random() * 101) + from}`;
+      return `Ты чурка на ${Math.floor(Math.random() * 101) + from}%`;
     }
 
     if (from && to && from < to) {
-      return `Your lucky number is ${
+      return `Ты чурка на ${
         Math.floor(Math.random() * (to - from + 1)) + from
-      }`;
+      }%`;
     } else {
-      return '"from" must be lower than "to"';
+      return 'Значение "from" должно быть меньше чем "to"';
     }
   }
 }

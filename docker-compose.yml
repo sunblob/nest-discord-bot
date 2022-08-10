@@ -1,0 +1,10 @@
+services:
+  discord-bot:
+    build:
+      context: .
+    image: discord-bot:latest
+    container_name: discord-bot
+    env_file:
+      - .env
+    # ports:
+    #   - 4000:${PORT}

@@ -3,6 +3,8 @@ import { Module } from '@nestjs/common';
 import { PlayerModule } from 'src/player/player.module';
 import { BotGateway } from './bot.gateway';
 import { RandomCommand } from './commands/common/random.command';
+import { FlipCommand } from './commands/misc/flip.command';
+import { RotateCommand } from './commands/misc/rotate.command';
 import { PauseCommand } from './commands/music/pause.command';
 import { PlayCommand } from './commands/music/play.command';
 import { ResumeCommand } from './commands/music/resume.command';
@@ -21,6 +23,8 @@ import { TestCommand } from './commands/test.command';
     VolumeCommand,
     ResumeCommand,
     StopCommand,
+    FlipCommand,
+    RotateCommand,
   ],
 })
 export class BotModule {}
